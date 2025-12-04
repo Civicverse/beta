@@ -1,0 +1,105 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_GAME_SERVER_URL=ws://localhost:4000
+      - VITE_AI_URL=http://localhost:8001
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - backend
+      - game-server
+      - ai-assistant
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017/civicverse
+      - JWT_SECRET=your_jwt_secret_here
+      - GAME_SERVER_URL=ws://game-server:4000
+      - AI_URL=http://ai-assistant:8001
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=civicverse
+
+  game-server:
+    build:
+      context: ./game-server
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./game-server:/app
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - BACKEND_URL=http://backend:8000
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - backend
+
+  ai-assistant:
+    build:
+      context: ./ai-assistant
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./ai-assistant:/app
+      - /app/node_modules
+    ports:
+      - "8001:8001"
+    environment:
+      - NODE_ENV=development
+      - BACKEND_URL=http://backend:8000
+      - GAME_SERVER_URL=ws://game-server:4000
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - backend
+
+  mining:
+    build:
+      context: ./mining
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./mining:/app
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev"]
+
+volumes:
+  mongo_data:
+  frontend_node_modules:
+  backend_node_modules:
+  game_server_node_modules:
+  ai_node_modules:
+

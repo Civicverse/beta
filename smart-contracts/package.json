@@ -1,0 +1,21 @@
+{
+  "name": "civicverse-smart-contracts",
+  "version": "1.0.0",
+  "description": "CivicVerse Smart Contracts - CRAIG DAO, Protocol Integrity Enforcer, and ecosystem contracts",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy-craig": "hardhat run deploy_craig.js --network localhost",
+    "deploy-dao": "hardhat run smart-contracts/deploy_dao.js --network localhost",
+    "test": "hardhat test"
+  },
+  "keywords": ["civicverse", "smart-contracts", "ethereum", "hardhat"],
+  "author": "Civicverse",
+  "license": "ISC",
+  "devDependencies": {
+    "hardhat": "^2.17.1",
+    "@openzeppelin/contracts": "^4.9.3",
+    "ethers": "^6.7.1"
+  }
+}

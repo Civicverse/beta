@@ -1,0 +1,23 @@
+{
+  "name": "civicverse-mining",
+  "version": "1.0.0",
+  "description": "CivicVerse Mining Service - Blockchain node operations and Monero/Kaspa mining",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["civicverse", "mining", "monero", "kaspa", "blockchain"],
+  "author": "Civicverse",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
