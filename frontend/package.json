@@ -15,7 +15,7 @@
   "dependencies": {
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "three": "^r162"
+    "three": "^0.162.0"
   },
   "devDependencies": {
     "vite": "^7.2.6",
