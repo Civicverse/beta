@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background: #0a0e27;
+  color: #00ff88;
+  overflow: hidden;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.top-bar {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(42, 27, 105, 0.7));
+  border-bottom: 2px solid #00ff88;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.top-bar h1 {
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-secondary {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.ubi-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  pointer-events: auto;
+  z-index: 200;
+}
+
+.receipts-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(42, 27, 105, 0.8));
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  pointer-events: auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.receipts-container h3 {
+  color: #00ffff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.receipts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.receipt-item-mini {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #00ff88;
+}
+
+.tx-id {
+  color: #888;
+  font-family: monospace;
+  font-size: 0.8rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tx-amount {
+  color: #ffff00;
+  font-weight: bold;
+  margin: 0 0.5rem;
+}
+
+.tx-time {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.no-transactions {
+  color: #666;
+  text-align: center;
+  padding: 1rem 0;
+  font-style: italic;
+}
+
+.hud-info {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 0.85rem;
+  color: #666;
+  pointer-events: none;
+}
+
+.hud-item {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hud-item span:first-child {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ubi-container {
+    width: calc(100vw - 40px);
+    bottom: auto;
+    top: 100px;
+    left: 20px;
+  }
+
+  .receipts-container {
+    width: calc(100vw - 40px);
+    bottom: auto;
+    right: auto;
+    left: 20px;
+    top: 350px;
+  }
+}

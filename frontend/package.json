@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "three": "^r162"
   },
   "devDependencies": {
     "vite": "^7.2.6",

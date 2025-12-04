@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import ubiRoutes from './routes/ubiRoutes.js';
+import { initPoller } from './services/poller.js';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -9,24 +11,21 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 
-// Database connection
+// Database connection (optional for demo mode)
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/civicverse';
-mongoose.connect(mongoUri)
+mongoose.connect(mongoUri, { maxPoolSize: 1 })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('MongoDB connection error (falling back to in-memory):', err.message));
+
+// Mount API routes
+app.use('/api', ubiRoutes);
+
+// Start on-chain poller
+initPoller();
 
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'CivicVerse Backend' });
-});
-
-// API routes placeholder
-app.get('/api/missions', (req, res) => {
-  res.json({ missions: [] });
-});
-
-app.get('/api/users/:id', (req, res) => {
-  res.json({ user: { id: req.params.id } });
 });
 
 // Start server

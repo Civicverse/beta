@@ -1,0 +1,246 @@
+.shop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.shop-modal {
+  background: linear-gradient(135deg, #1a1a3f 0%, #2d1b69 100%);
+  border: 2px solid #00ff88;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+  color: #00ff88;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ff0080;
+  color: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.shop-modal h1 {
+  margin: 0 0 1.5rem 0;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.shop-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.items-list h2, .cart-section h2 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.shop-item {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info h3 {
+  margin: 0;
+  color: #00ffff;
+}
+
+.item-info .price {
+  margin: 0.5rem 0 0 0;
+  color: #ffff00;
+  font-weight: bold;
+}
+
+.shop-item button {
+  background: #00ff88;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.shop-item button:hover {
+  background: #00ffff;
+}
+
+.cart-items {
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.cart-item button {
+  background: #ff0080;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.empty {
+  color: #888;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.checkout-summary {
+  background: rgba(255, 255, 0, 0.1);
+  border: 1px solid #ffff00;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: #00ff88;
+}
+
+.summary-row.tax {
+  color: #ff0080;
+  font-weight: bold;
+}
+
+.summary-row.total {
+  border-top: 2px solid #00ff88;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  color: #ffff00;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: #00ff88;
+  color: #000;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background: #00ffff;
+}
+
+.receipt-content {
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.receipt-item.highlight {
+  background: rgba(255, 0, 128, 0.2);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  color: #ff0080;
+  font-weight: bold;
+}
+
+.receipt-item.total {
+  border-top: 2px solid #ffff00;
+  border-bottom: none;
+  color: #ffff00;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.status-badge {
+  background: #00ff88;
+  color: #000;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.continue-btn {
+  width: 100%;
+  background: #00ff88;
+  color: #000;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.continue-btn:hover {
+  background: #00ffff;
+}
+
+@media (max-width: 768px) {
+  .shop-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .shop-modal {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+}
