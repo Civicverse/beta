@@ -145,7 +145,7 @@ node -v
 npm -v
 
 # 6️⃣ Install frontend dependencies
-cd frontend
+cd /home/civicverse_user/civicverse/frontend
 rm -rf node_modules package-lock.json
 npm install
 
