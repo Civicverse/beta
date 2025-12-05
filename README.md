@@ -126,10 +126,31 @@ Voice optional. Fully context-aware.
 ## 🚀 Getting Started (Dev Preview)
 
 ```bash
-git clone https://github.com/Civicverse/Civicverse.git
-cd civicverse/foyer
+# 1️⃣ Move to home directory
+cd ~
+
+# 2️⃣ Remove any old clone
+sudo rm -rf ~/beta
+
+# 3️⃣ Clone the beta repo
+git clone https://github.com/Civicverse/beta.git
+cd beta
+
+# 4️⃣ Upgrade Node.js to 20.x (required by Vite)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# 5️⃣ Verify Node & npm versions
+node -v
+npm -v
+
+# 6️⃣ Install frontend dependencies
+cd frontend
+rm -rf node_modules package-lock.json
 npm install
-npm run dev
+
+# 7️⃣ Start the frontend dev server
+npm run dev 
 
 UE5 client build and multiplayer world systems are in early development under /ue5/foyer.
 Indie devs, contributors, and open-world creators welcome.
